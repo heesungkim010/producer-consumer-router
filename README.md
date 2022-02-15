@@ -1,6 +1,9 @@
 # producer-consumer-router
 
-With this router, "multi-thread producers" can send data to "multi-thread consumers" without mutual exclusion, synchronization problems.
+With this router, 
+"single/multiple producers" can send data to "single/multiple consumers" without mutual exclusion, synchronization problems.
+
+Producers and consumers can be run by mulitiple threads.
 
 Only used for a single process.
 
