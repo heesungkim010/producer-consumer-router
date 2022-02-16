@@ -2,13 +2,13 @@ package main.router;
 
 import java.util.concurrent.Semaphore;
 
-public class ProducerConsumerRouter{
+public class RouterManyToOne {
 
     private int in, out, bufferSize;
     private Semaphore mutexP, mutexC, nrfull, nrempty;
     private Object[] buffer;
 
-    public ProducerConsumerRouter(int bufferSize){
+    public RouterManyToOne(int bufferSize){
         this.in = 0;
         this.out = 0;
         this.bufferSize = bufferSize;
@@ -31,14 +31,13 @@ public class ProducerConsumerRouter{
     }
 
     public Object receive() throws InterruptedException {
-        mutexC.acquire();
+
         nrfull.acquire();
         // needs to copy object
         Object output = buffer[out];
         out = (out+1) % this.bufferSize;
 
         nrempty.release();
-        mutexC.release();
         return output;
     }
 

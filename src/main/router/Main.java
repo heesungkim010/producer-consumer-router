@@ -2,12 +2,12 @@ package main.router;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         // 1. make router object and initialize the producer and consumer objects
         // bufferSize : size of buffer in router
-        int bufferSize = 100;
-        ProducerConsumerRouter router = new ProducerConsumerRouter(bufferSize);
+        int bufferSize = 128;
+        RouterOneToOne router = new RouterOneToOne(bufferSize);
         ProducerEx producer = new ProducerEx(router);
         ConsumerEx consumer = new ConsumerEx(router);
 
@@ -33,6 +33,7 @@ public class Main {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        long beforeTime = System.currentTimeMillis();
 
         // 4. producer and consumer running by thread
         Thread threadProducer = new Thread(producer, "producer");
@@ -40,5 +41,6 @@ public class Main {
 
         threadProducer.start();
         threadConsumer.start();
+
     }
 }

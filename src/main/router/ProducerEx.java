@@ -1,13 +1,13 @@
 package main.router;
 
 public class ProducerEx implements Runnable {
-    private ProducerConsumerRouter pc;
+    private RouterOneToOne pc;
 
-    public ProducerEx(ProducerConsumerRouter pc){
+    public ProducerEx(RouterOneToOne pc){
         this.pc = pc;
     }
 
-    public ProducerConsumerRouter getPc() {
+    public RouterOneToOne getPc() {
         return pc;
     }
 
@@ -17,7 +17,7 @@ public class ProducerEx implements Runnable {
 
     @Override
     public void run() {
-        for( int i = 0 ; i< 100; i++){
+        for( int i = 0 ; i< 100000; i++){
             ObjectToPass objectToPass = new ObjectToPass(i);
 
             String currentThreadName = Thread.currentThread().getName();
