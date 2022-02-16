@@ -1,14 +1,17 @@
 package main.router;
+import java.util.ArrayList;
 
 public class ConsumerEx implements Runnable {
 
-    private ProducerConsumerRouter pc;
+    private ArrayList<Integer> integers;
 
-    public ConsumerEx(ProducerConsumerRouter pc){
+    private RouterOneToOne pc;
+
+    public ConsumerEx(RouterOneToOne pc){
         this.pc = pc;
     }
 
-    public ProducerConsumerRouter getPc() {
+    public RouterOneToOne getPc() {
         return pc;
     }
 
@@ -18,7 +21,7 @@ public class ConsumerEx implements Runnable {
 
     @Override
     public void run() {
-        for( int i = 0 ; i< 100; i++){
+        for( int i = 0 ; i< 100000; i++){
             ObjectToPass objectToPass = new ObjectToPass(i);
 
             String currentThreadName = Thread.currentThread().getName();
@@ -30,18 +33,10 @@ public class ConsumerEx implements Runnable {
                 ObjectToPass otp = (ObjectToPass) o;
 
                 System.out.println("received : " + otp.getId());
-
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            try {
-                Thread.sleep(200);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
 
-
-            //produce();
         }
     }
 }
