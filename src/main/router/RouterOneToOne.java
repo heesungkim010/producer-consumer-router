@@ -31,7 +31,7 @@ public class RouterOneToOne {
     public Object receive() throws InterruptedException {
 
         nrfull.acquire();
-        // needs to copy object
+
         Object output = buffer[out];
         out = (out+1) % this.bufferSize;
 

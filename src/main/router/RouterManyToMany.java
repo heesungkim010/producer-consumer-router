@@ -33,7 +33,7 @@ public class RouterManyToMany {
     public Object receive() throws InterruptedException {
         mutexC.acquire();
         nrfull.acquire();
-        // needs to copy object
+
         Object output = buffer[out];
         out = (out+1) % this.bufferSize;
 
