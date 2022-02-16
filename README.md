@@ -2,7 +2,7 @@
 
 With this router "single/multiple producers" can send data to "single/multiple consumers" without mutual exclusion, synchronization problems.
 
-There are 4 kinds of routers: OneToOne, OneToMany, ManyToOne, ManyToOne.
+There are 4 kinds of routers: OneToOne, OneToMany, ManyToOne, ManyToMany.
 "One" means single producers/consumers and "Many" means multiple producers/consumers.
 
 Producers and consumers can be run by mulitiple threads.
