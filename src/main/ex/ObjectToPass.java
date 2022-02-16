@@ -1,4 +1,4 @@
-package main.router;
+package main.ex;
 
 public class ObjectToPass {
     private int id;
