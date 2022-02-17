@@ -1,5 +1,5 @@
-package main.ex;
-import main.router.RouterOneToOne;
+package main.producers_consumers;
+import main.router.Router;
 
 import java.util.ArrayList;
 
@@ -7,14 +7,10 @@ public class ConsumerEx implements Runnable {
 
     private ArrayList<Integer> integers;
 
-    private RouterOneToOne pc;
+    private Router pc;
 
-    public ConsumerEx(RouterOneToOne pc){
+    public ConsumerEx(Router pc){
         this.pc = pc;
-    }
-
-    public RouterOneToOne getPc() {
-        return pc;
     }
 
     public Object receive() throws InterruptedException {

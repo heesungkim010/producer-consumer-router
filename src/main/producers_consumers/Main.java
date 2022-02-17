@@ -1,17 +1,20 @@
-package main.ex;
+package main.producers_consumers;
 
+import main.router.Router;
 import main.router.RouterOneToOne;
 
 public class Main {
 
     public static void main(String[] args) throws InterruptedException {
 
-        // 1. make router object and initialize the producer and consumer objects
+        // 1. initialization
+        // choose the router type and initialize producer/consumer with the chosen router
         // bufferSize : size of buffer in router
-        int bufferSize = 128;
-        RouterOneToOne router = new RouterOneToOne(bufferSize);
+        int bufferSize = 128; // set buffer size
+        Router router = new RouterOneToOne(bufferSize);
         ProducerEx producer = new ProducerEx(router);
         ConsumerEx consumer = new ConsumerEx(router);
+        // connection made between producer and consumer
 
         // 2. producer sends data to the router
         ObjectToPass objectToPass = new ObjectToPass(1);
@@ -35,7 +38,6 @@ public class Main {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        long beforeTime = System.currentTimeMillis();
 
         // 4. producer and consumer running by thread
         Thread threadProducer = new Thread(producer, "producer");

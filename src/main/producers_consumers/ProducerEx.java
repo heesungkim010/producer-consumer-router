@@ -1,16 +1,12 @@
-package main.ex;
+package main.producers_consumers;
 
-import main.router.RouterOneToOne;
+import main.router.Router;
 
 public class ProducerEx implements Runnable {
-    private RouterOneToOne pc;
+    private Router pc;
 
-    public ProducerEx(RouterOneToOne pc){
+    public ProducerEx(Router pc){
         this.pc = pc;
-    }
-
-    public RouterOneToOne getPc() {
-        return pc;
     }
 
     public void send(Object obj) throws InterruptedException {

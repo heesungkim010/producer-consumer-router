@@ -1,4 +1,4 @@
-package main.ex;
+package main.producers_consumers;
 
 public class ObjectToPass {
     private int id;

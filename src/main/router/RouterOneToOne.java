@@ -2,7 +2,7 @@ package main.router;
 
 import java.util.concurrent.Semaphore;
 
-public class RouterOneToOne {
+public class RouterOneToOne implements Router{
 
     private int in, out, bufferSize;
     private Semaphore mutexP, mutexC, nrfull, nrempty;
@@ -19,6 +19,7 @@ public class RouterOneToOne {
         this.buffer = new Object[bufferSize];
     }
 
+    @Override
     public void send(Object obj) throws InterruptedException {
         nrempty.acquire();
 
@@ -28,8 +29,8 @@ public class RouterOneToOne {
         nrfull.release();
     }
 
+    @Override
     public Object receive() throws InterruptedException {
-
         nrfull.acquire();
 
         Object output = buffer[out];
