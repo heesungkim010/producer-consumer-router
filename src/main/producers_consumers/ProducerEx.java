@@ -3,14 +3,14 @@ package main.producers_consumers;
 import main.router.Router;
 
 public class ProducerEx implements Runnable {
-    private Router pc;
+    private Router router;
 
-    public ProducerEx(Router pc){
-        this.pc = pc;
+    public ProducerEx(Router r){
+        this.router = r;
     }
 
     public void send(Object obj) throws InterruptedException {
-        pc.send(obj);
+        router.send(obj);
     }
 
     @Override

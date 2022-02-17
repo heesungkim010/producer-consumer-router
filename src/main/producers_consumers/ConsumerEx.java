@@ -7,14 +7,14 @@ public class ConsumerEx implements Runnable {
 
     private ArrayList<Integer> integers;
 
-    private Router pc;
+    private Router router;
 
-    public ConsumerEx(Router pc){
-        this.pc = pc;
+    public ConsumerEx(Router r){
+        this.router = r;
     }
 
     public Object receive() throws InterruptedException {
-        return pc.receive();
+        return router.receive();
     }
 
     @Override
