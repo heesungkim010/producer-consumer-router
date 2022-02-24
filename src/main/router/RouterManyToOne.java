@@ -1,12 +1,14 @@
 package main.router;
 
+import main.producers_consumers.ObjectToPass;
+
 import java.util.concurrent.Semaphore;
 
 public class RouterManyToOne implements Router{
 
     private int in, out, bufferSize;
     private Semaphore mutexP, mutexC, nrfull, nrempty;
-    private Object[] buffer;
+    private ObjectToPass[] buffer;
 
     public RouterManyToOne(int bufferSize){
         this.in = 0;
@@ -16,11 +18,11 @@ public class RouterManyToOne implements Router{
         this.mutexC = new Semaphore(1, true);
         this.nrfull = new Semaphore(0, true);
         this.nrempty = new Semaphore(bufferSize, true);
-        this.buffer = new Object[bufferSize];
+        this.buffer = new ObjectToPass[bufferSize];
     }
 
     @Override
-    public void send(Object obj) throws InterruptedException {
+    public void send(ObjectToPass obj) throws InterruptedException {
         mutexP.acquire();
         nrempty.acquire();
 
@@ -32,11 +34,11 @@ public class RouterManyToOne implements Router{
     }
 
     @Override
-    public Object receive() throws InterruptedException {
+    public ObjectToPass receive() throws InterruptedException {
 
         nrfull.acquire();
 
-        Object output = buffer[out];
+        ObjectToPass output = buffer[out];
         out = (out+1) % this.bufferSize;
 
         nrempty.release();

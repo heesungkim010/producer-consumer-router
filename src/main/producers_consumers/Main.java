@@ -26,11 +26,8 @@ public class Main {
 
         // 3. consumer receives data from the router
         try {
-            Object o = consumer.receive();
-            System.out.println(o.getClass());
-
-            // convert type after check the class type
-            ObjectToPass otp = (ObjectToPass) o;
+            ObjectToPass otp = consumer.receive();
+            System.out.println(otp.getClass());
 
             System.out.println("received : " + otp.getId());
             System.out.println(objectToPass == otp);

@@ -1,8 +1,10 @@
 package main.router;
 
-public interface Router {
-    public void send(Object obj) throws InterruptedException;
+import main.producers_consumers.ObjectToPass;
 
-    public Object receive() throws InterruptedException;
+public interface Router {
+    public void send(ObjectToPass obj) throws InterruptedException;
+
+    public ObjectToPass receive() throws InterruptedException;
 
 }

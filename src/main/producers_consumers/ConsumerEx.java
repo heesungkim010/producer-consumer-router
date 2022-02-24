@@ -13,7 +13,7 @@ public class ConsumerEx implements Runnable {
         this.router = r;
     }
 
-    public Object receive() throws InterruptedException {
+    public ObjectToPass receive() throws InterruptedException {
         return router.receive();
     }
 
@@ -26,9 +26,7 @@ public class ConsumerEx implements Runnable {
             System.out.println("currentThreadName = " + currentThreadName);
 
             try {
-                Object o = this.receive();
-                // convert type after check the class type
-                ObjectToPass otp = (ObjectToPass) o;
+                ObjectToPass otp = this.receive();
 
                 System.out.println("received : " + otp.getId());
             } catch (InterruptedException e) {

@@ -9,7 +9,7 @@ public class ProducerEx implements Runnable {
         this.router = r;
     }
 
-    public void send(Object obj) throws InterruptedException {
+    public void send(ObjectToPass obj) throws InterruptedException {
         router.send(obj);
     }
 
