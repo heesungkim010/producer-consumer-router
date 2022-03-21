@@ -4,7 +4,7 @@ This is an implementation of how to solve "Producer-Consumer Problem"(also calle
 With this router "single/multiple producers" can send data to "single/multiple consumers".
 
 There are 4 kinds of routers: OneToOne, OneToMany, ManyToOne, ManyToMany.
-"One" means single producers/consumers and "Many" means multiple producers/consumers.
+"One" means a single producers/consumer and "Many" means multiple producers/consumers.
 
 Producers and consumers can be run by mulitiple threads.
 
