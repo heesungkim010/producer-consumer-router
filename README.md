@@ -1,5 +1,5 @@
 # producer-consumer-router
-This is an implementation of "Producer-Consumer Problem"(also called as "The Bounded-Buffer Problem") in Operationg System.
+This is an implementation of how to solve "Producer-Consumer Problem"(also called as "The Bounded-Buffer Problem") in Operationg System.
 
 With this router "single/multiple producers" can send data to "single/multiple consumers".
 
