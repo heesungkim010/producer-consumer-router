@@ -8,7 +8,6 @@ There are 4 kinds of routers: OneToOne, OneToMany, ManyToOne, ManyToMany.
 
 Producers and consumers can be run by mulitiple threads.
 
-Only used for a single process.
 Does not support sending data by network.
 
 # Implemetation and further variations
