@@ -14,6 +14,14 @@ Does not support sending data by network.
 
 Implemented by using semaphores and array as a bounded buffer(circular using mod operation).
 
+[Further variation 1]
+
 Linked list could replace the array in restricted cases. Using linked list can lead to non-waiting producers and not using some of the semaphores. 
 
 However it might decrease the performance due to the pointer operations. How to properly restrict the amount of "already sent but not yet received messages" is another overhead issue.
+
+[Further variation 2]
+
+Spinlock or Ticketlock(Sequencer/Eventcount) could replace the semaphores. 
+
+Each has its own pros and cons, so what to choose depends on the specific situation.
