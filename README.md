@@ -16,7 +16,7 @@ Implemented by using semaphores and array as a bounded buffer(circular using mod
 
 [Further variation 1]
 
-Linked list could replace the array in restricted cases. Using linked list can lead to non-waiting producers and not using some of the semaphores. 
+A Linked list could replace the array in restricted cases. Using a linked list can lead to non-waiting producers and not using some of the semaphores. 
 
 However it might decrease the performance due to the pointer operations. How to properly restrict the amount of "already sent but not yet received messages" is another overhead issue.
 
